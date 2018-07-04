@@ -45,7 +45,7 @@ tar zxf ./mysql-boost-5.7.16.tar.gz
 
 cd /usr/local/src/lib/$dir
 
-cmake . -DCMAKE_INSTALL_PREFIX=/usr/local/mysql -DMYSQL_DATADIR=/usr/local/mysql/data -DMYSQL_UNIX_ADDR=/usr/local/mysql/tmp/mysql.sock -DMYSQL_USER=mysql -DDEFAULT_CHARSET=utf8 -DDEFAULT_COLLATION=utf8_general_ci -DENABLED_LOCAL_INFILE=ON -DWITH_INNOBASE_STORAGE_ENGINE=1 -DWITH_FEDERATED_STORAGE_ENGINE=1 -DWITH_BLACKHOLE_STORAGE_ENGINE=1 -DWITHOUT_EXAMPLE_STORAGE_ENGINE=1 -DDOWNLOAD_BOOST=1 -DWITH_BOOST=/usr/local/src/mysql-5.7.16/boost/boost_1_59_0
+cmake . -DCMAKE_INSTALL_PREFIX=/usr/local/mysql -DMYSQL_DATADIR=/usr/local/mysql/data -DMYSQL_UNIX_ADDR=/usr/local/mysql/tmp/mysql.sock -DMYSQL_USER=$user -DDEFAULT_CHARSET=utf8 -DDEFAULT_COLLATION=utf8_general_ci -DENABLED_LOCAL_INFILE=ON -DWITH_INNOBASE_STORAGE_ENGINE=1 -DWITH_FEDERATED_STORAGE_ENGINE=1 -DWITH_BLACKHOLE_STORAGE_ENGINE=1 -DWITHOUT_EXAMPLE_STORAGE_ENGINE=1 -DDOWNLOAD_BOOST=1 -DWITH_BOOST=/usr/local/src/mysql-5.7.16/boost/boost_1_59_0
 
 make && make install
 
@@ -55,7 +55,7 @@ cp /usr/local/mysql/support-files/my-default.cnf /etc/my.cnf
 # mkdir -p /data/mysql
 # /usr/local/mysql/bin/mysqld --initialize --user=mysql --basedir=/usr/local/mysql --datadir=/data/mysql
 
-/usr/local/mysql/bin/mysqld --initialize --user=mysql --basedir=/usr/local/mysql
+/usr/local/mysql/bin/mysqld --initialize --user=$user --basedir=/usr/local/mysql
 
 echo skip-grant-tables >> /etc/my.cnf
 
