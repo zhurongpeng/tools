@@ -29,6 +29,11 @@ tarfile="nginx-${version}.tar.gz"
 
 yum -y install gcc gcc-c++ make
 
+if [ -d /usr/local/src/lib ]
+then
+    mkdir /usr/local/src/lib
+fi
+
 sh /usr/local/src/nginx/bin/openssl.sh
 sh /usr/local/src/nginx/bin/zlib.sh
 sh /usr/local/src/nginx/bin/pcre.sh
