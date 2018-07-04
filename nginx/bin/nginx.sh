@@ -36,11 +36,9 @@ fi
 
 path=$(cd `dirname $0`; pwd)
 
-sh $path/bin/openssl.sh
-echo 'test'
-exit
-sh $path/bin/zlib.sh
-sh $path/bin/pcre.sh
+sh $path/openssl.sh
+sh $path/zlib.sh
+sh $path/pcre.sh
 
 #开始安装
 count=`pidof "/usr/local/$dirname/sbin/nginx" | wc -l`
