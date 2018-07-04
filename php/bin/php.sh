@@ -10,7 +10,7 @@ fi
 
 # 定义安装用户组
 if [ $2 ]; then
-    user=$1
+    group=$2
 else
     echo '请添加用户组'
     exit
