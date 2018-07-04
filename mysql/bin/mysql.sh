@@ -36,7 +36,7 @@ dir="mysql-5.7.16"
 
 cd /usr/local/src/lib
 
-if [ ! -f /usr/local/src/lib/${tarfile}.tar.gz ]
+if [ ! -f /usr/local/src/lib/mysql-boost-5.7.16.tar.gz ]
 then
     wget http://pkgs.fedoraproject.org/repo/pkgs/mysql/mysql-boost-5.7.16.tar.gz/f7724b816919878760b5c7c9956e6508/mysql-boost-5.7.16.tar.gz
 fi
