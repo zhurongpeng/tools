@@ -21,7 +21,7 @@ fi
 
 sh $path/user/bin/user.sh $user $group
 
-sh $path/mysql/bin/mysql.sh $user $group
+sh $path/mysql/bin/mysql.sh mysql mysql
 
 sh $path/mysql/bin/nginx.sh $user $group
 
