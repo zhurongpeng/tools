@@ -33,10 +33,12 @@ if [ -d "/usr/local/src/lib/" ]
 then
     mkdir /usr/local/src/lib
 fi
+exit
+path=$(cd `dirname $0`; pwd)
 
-sh /usr/local/src/nginx/bin/openssl.sh
-sh /usr/local/src/nginx/bin/zlib.sh
-sh /usr/local/src/nginx/bin/pcre.sh
+sh $path/bin/openssl.sh
+sh $path/bin/zlib.sh
+sh $path/bin/pcre.sh
 
 #开始安装
 count=`pidof "/usr/local/$dirname/sbin/nginx" | wc -l`
