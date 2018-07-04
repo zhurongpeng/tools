@@ -37,6 +37,8 @@ fi
 path=$(cd `dirname $0`; pwd)
 
 sh $path/bin/openssl.sh
+echo 'test'
+exit
 sh $path/bin/zlib.sh
 sh $path/bin/pcre.sh
 
