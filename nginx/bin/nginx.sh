@@ -29,11 +29,11 @@ tarfile="nginx-${version}.tar.gz"
 
 yum -y install gcc gcc-c++ make
 
-if [ -d "/usr/local/src/lib/" ]
+if [ ! -d "/usr/local/src/lib/" ]
 then
     mkdir /usr/local/src/lib
 fi
-exit
+
 path=$(cd `dirname $0`; pwd)
 
 sh $path/bin/openssl.sh
