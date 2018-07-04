@@ -29,7 +29,7 @@ tarfile="nginx-${version}.tar.gz"
 
 yum -y install gcc gcc-c++ make
 
-if [ -d /usr/local/src/lib ]
+if [ -d "/usr/local/src/lib/" ]
 then
     mkdir /usr/local/src/lib
 fi
@@ -48,14 +48,14 @@ fi
 
 cd /usr/local
 
-if [ -d /usr/local/$dirname ]
+if [ -d "/usr/local/$dirname/" ]
 then
     rm -rf /usr/local/$dirname
 fi
 
 cd /usr/local/src/lib
 
-if [ -d /usr/local/src/lib/$dirname ]
+if [ -d "/usr/local/src/lib/$dirname/" ]
 then
     rm -rf /usr/local/src/lib/$dirname
 fi
