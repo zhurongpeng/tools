@@ -2,7 +2,9 @@
 
 yum install vim
 
-`bash <(curl -L https://raw.githubusercontent.com/kepbod/ivim/master/setup.sh) -i`
+curl -L https://raw.githubusercontent.com/kepbod/ivim/master/setup.sh > ~/setup.sh
+
+sh ~/setup.sh -i
 
 
 
