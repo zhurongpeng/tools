@@ -1,1 +1,2 @@
 ZSH_THEME="ys"
+plugins=(autojump composer docker gradle git git-flow git-prompt git-remote-branch git-flow-completion go golang kubectl man npm pass repo rsync sudo systemd yum)
