@@ -2,11 +2,11 @@
 
 yum install vim
 
-curl -L https://raw.githubusercontent.com/kepbod/ivim/master/setup.sh > ~/setup.sh
-
-sh ~/setup.sh -i
-
 path=$(cd `dirname $0`; pwd)
+
+# curl -L https://raw.githubusercontent.com/kepbod/ivim/master/setup.sh > $path/setup.sh
+#
+# sh $path/setup.sh -i
 
 cat $path/vimrc >> ~/.vimrc
 
