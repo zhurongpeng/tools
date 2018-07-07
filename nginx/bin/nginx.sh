@@ -98,7 +98,9 @@ fi
 
 ln -s /usr/local/$dirname /usr/local/$name
 
-/usr/local/$name/sbin/nginx
+ln -s /usr/local/$name/sbin/nginx /usr/local/bin/nginx
+
+/usr/local/bin/nginx
 
 # nginx安装路径
 # ./configure --prefix=/usr/local/nginx-1.10.1 \
