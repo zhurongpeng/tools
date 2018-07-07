@@ -115,5 +115,9 @@ cp php-fpm.d/www.conf.default  php-fpm.d/${user}.conf
 
 ln -s /usr/local/${php} /usr/local/php
 
-/usr/local/src/php/bin/phpredis.sh
+ln -s /usr/local/${php}/sbin/php-fpm /usr/local/bin/php-fpm
+
+path=$(cd `dirname $0`; pwd)
+
+sh $path/phpredis.sh
 # /etc/init.d/php-fpm start
