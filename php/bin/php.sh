@@ -69,11 +69,11 @@ fi
 cd /usr/local/src/lib/$php
 
 ./configure \
-    --prefix=/usr/local/php-7.2.5 \
-    --with-config-file-path=/usr/local/php-7.2.5/etc \
-    --with-config-file-scan-dir=/usr/local/php-7.2.5/etc/conf.d \
+    --prefix=/usr/local/${php} \
+    --with-config-file-path=/usr/local/${php}/etc \
+    --with-config-file-scan-dir=/usr/local/${php}/etc/conf.d \
     --with-openssl \
-    --with-zlib=/usr \
+    --with-zlib \
     --enable-mbstring=all \
     --with-fpm-user=${user} \
     --with-fpm-group=${group} \
@@ -94,7 +94,7 @@ cd /usr/local/src/lib/$php
     --with-xmlrpc \
     --with-freetype-dir \
     --with-gd \
-    --with-jpeg-dir=/usr/local/jpeg \
+    --with-jpeg-dir \
     --with-png-dir \
     --enable-short-tags \
     --enable-sockets \
