@@ -69,9 +69,9 @@ fi
 cd /usr/local/src/lib/$php
 
 ./configure \
-    --prefix=/usr/local/${php} \
-    --with-config-file-path=/usr/local/${php}/etc \
-    --with-config-file-scan-dir=/usr/local/${php}/etc/conf.d \
+    --prefix=/usr/local/php-7.2.5 \
+    --with-config-file-path=/usr/local/php-7.2.5/etc \
+    --with-config-file-scan-dir=/usr/local/php-7.2.5/etc/conf.d \
     --with-openssl \
     --with-zlib=/usr \
     --enable-mbstring=all \
