@@ -85,6 +85,7 @@ cd /usr/local/src/lib/$php
     --with-mysqli \
     --with-pdo-mysql=mysqlnd \
     --with-curl \
+    --without-iconv \
     --with-mysql-sock=/usr/local/mysql/tmp/mysql.sock \
     --disable-fileinfo \
     --with-openssl \
