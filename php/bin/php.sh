@@ -68,7 +68,7 @@ fi
 #进入tar包所在目录
 cd /usr/local/src/lib/$php
 
-/usr/local/src/lib/$php/configure \
+./configure \
     --prefix=/usr/local/${php} \
     --with-config-file-path=/usr/local/${php}/etc \
     --with-config-file-scan-dir=/usr/local/${php}/etc/conf.d \
