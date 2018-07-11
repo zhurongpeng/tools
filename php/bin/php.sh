@@ -26,6 +26,8 @@ fi
 # 安装依赖
 yum install wget autoconf libjpeg libjpeg-devel libpng libpng-devel freetype freetype-devel libxml2 libxml2-devel zlib zlib-devel glibc glibc-devel bzip2 bzip2-devel ncurses ncurses-devel curl curl-devel e2fsprogs e2fsprogs-devel krb5-devel openssl openssl-devel openldap openldap-devel nss_ldap gcc gcc-c++ bison git libxslt-devel libXpm-devel libjpeg-turbo libjpeg-turbo-devel libvpx libvpx-devel -y
 
+path=$(cd `dirname $0`; pwd)
+
 php="php-"${version}
 
 cd /usr/local/src
@@ -115,8 +117,9 @@ cp php-fpm.d/www.conf.default  php-fpm.d/${user}.conf
 ln -s /usr/local/${php} /usr/local/php
 
 ln -s /usr/local/${php}/sbin/php-fpm /usr/local/bin/php-fpm
+lh -s /usr/local/${php}/bin/php /usr/local/bin/php
 
-path=$(cd `dirname $0`; pwd)
+cd /usr/local/
 
 sh $path/phpredis.sh
 # /etc/init.d/php-fpm start
