@@ -122,4 +122,3 @@ lh -s /usr/local/${php}/bin/php /usr/local/bin/php
 cd /usr/local/
 
 sh $path/phpredis.sh
-# /etc/init.d/php-fpm start
