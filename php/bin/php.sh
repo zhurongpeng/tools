@@ -72,8 +72,7 @@ cd /usr/local/src/lib/$php
     --prefix=/usr/local/${php} \
     --with-config-file-path=/usr/local/${php}/etc \
     --with-config-file-scan-dir=/usr/local/${php}/etc/conf.d \
-    --with-openssl \
-    --with-zlib \
+    --with-zlib=/usr \
     --enable-mbstring=all \
     --with-fpm-user=${user} \
     --with-fpm-group=${group} \
@@ -88,13 +87,12 @@ cd /usr/local/src/lib/$php
     --without-iconv \
     --with-mysql-sock=/usr/local/mysql/tmp/mysql.sock \
     --disable-fileinfo \
-    --with-openssl \
     --with-pcre-regex \
     --with-pdo-mysql \
     --with-xmlrpc \
     --with-freetype-dir \
     --with-gd \
-    --with-jpeg-dir \
+    --with-jpeg-dir=/usr/local/jpeg \
     --with-png-dir \
     --enable-short-tags \
     --enable-sockets \
