@@ -24,7 +24,7 @@ fi
 tar -zxvf /usr/local/src/lib/$tarfile
 
 #安装php redis扩展
-cd /usr/local/src/lib/$name
+cd /usr/local/src/lib/$dirname
 
 /usr/local/php/bin/phpize
 
