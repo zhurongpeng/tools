@@ -135,6 +135,6 @@ then
     rm -rf /usr/local/bin/php
 fi
 
-lh -s /usr/local/${dirname}/bin/php /usr/local/bin/php
+ln -s /usr/local/${dirname}/bin/php /usr/local/bin/php
 
 sh $path/phpredis.sh
