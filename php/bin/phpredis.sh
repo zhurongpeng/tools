@@ -11,6 +11,8 @@ name="redis"
 dirname="$name-$version"
 tarfile="$name-${version}.tgz"
 
+cd /usr/local/src/lib
+
 if [ ! -f "/usr/local/src/lib/$tarfile" ];then
     wget http://pecl.php.net/get/$tarfile
 fi
