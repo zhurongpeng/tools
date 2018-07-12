@@ -7,28 +7,24 @@ else
     version="4.1.0"
 fi
 
-name="redis"
+name="phpredis"
 dirname="$name-$version"
 tarfile="$name-${version}.tgz"
 
 cd /usr/local/src/lib
 
 if [ ! -f "/usr/local/src/lib/$tarfile" ];then
-    wget http://pecl.php.net/get/$tarfile
+    wget -O phpredis-4.1.0.tgz http://pecl.php.net/get/redis-${version}.tgz
 fi
 
 if [ -d "/usr/local/src/lib/${dirname}" ];then
     rm -rf /usr/local/src/lib/${dirname}
 fi
 
-if [ ! -d "/usr/local/src/lib/phpredis-$version" ];then
-    mkdir /usr/local/src/lib/phpredis-$version
-fi
-
-tar -zxvf /usr/local/src/lib/$tarfile -C phpredis-$version
+tar -zxvf /usr/local/src/lib/$tarfile
 
 #安装php redis扩展
-cd /usr/local/src/lib/phpredis
+cd /usr/local/src/lib/$name
 
 /usr/local/php/bin/phpize
 
