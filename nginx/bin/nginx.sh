@@ -24,8 +24,8 @@ else
 fi
 
 name="nginx"
-dirname="nginx-$version"
-tarfile="nginx-${version}.tar.gz"
+dirname="$name-$version"
+tarfile="$name-${version}.tar.gz"
 
 yum -y install gcc gcc-c++ make
 

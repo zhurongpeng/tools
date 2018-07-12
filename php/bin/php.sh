@@ -18,7 +18,7 @@ fi
 
 # 定义安装版本号
 if [ $3 ]; then
-    version=$1
+    version=$3
 else
     version="7.2.5"
 fi
@@ -28,7 +28,9 @@ yum install wget autoconf libjpeg libjpeg-devel libpng libpng-devel freetype fre
 
 path=$(cd `dirname $0`; pwd)
 
-php="php-"${version}
+name="php"
+dirname="$name-$version"
+tarfile="$name-${version}.tar.gz"
 
 cd /usr/local/src
 
@@ -38,15 +40,15 @@ fi
 
 cd /usr/local/src/lib
 
-if [ ! -f "/usr/local/src/lib/${php}.tar.gz" ];then
-    wget http://cn2.php.net/distributions/${php}.tar.gz
+if [ ! -f "/usr/local/src/lib/$tarfile" ];then
+    wget http://cn2.php.net/distributions/$tarfile
 fi
 
 #判断php进程是否开启,开启则kill进程
-count=`pidof "/usr/local/${php}/sbin/php-fpm" | wc -l`
+count=`pidof "/usr/local/${dirname}/sbin/php-fpm" | wc -l`
 
 if [ $count != 0 ];then
-    pid=`pidof "/usr/local/${php}/sbin/php-fpm"`
+    pid=`pidof "/usr/local/${dirname}/sbin/php-fpm"`
     kill $pid
 fi
 
@@ -54,26 +56,26 @@ fi
 
 cd /usr/local
 
-if [ -d /usr/local/${php} ]
+if [ -d /usr/local/${dirname} ]
 then
-    rm -rf /usr/local/${php}
+    rm -rf /usr/local/${dirname}
 fi
 
 #进入目录,php安装包不存在则解压
-if [ ! -d /usr/local/src/lib/${php} ]
+if [ ! -d /usr/local/src/lib/${dirname} ]
 then
     cd /usr/local/src/lib
 
-    tar zxf /usr/local/src/lib/$php.tar.gz
+    tar zxf /usr/local/src/lib/$tarfile
 fi
 
 #进入tar包所在目录
-cd /usr/local/src/lib/$php
+cd /usr/local/src/lib/$dirname
 
 ./configure \
-    --prefix=/usr/local/${php} \
-    --with-config-file-path=/usr/local/${php}/etc \
-    --with-config-file-scan-dir=/usr/local/${php}/etc/conf.d \
+    --prefix=/usr/local/${dirname} \
+    --with-config-file-path=/usr/local/${dirname}/etc \
+    --with-config-file-scan-dir=/usr/local/${dirname}/etc/conf.d \
     --with-zlib=/usr \
     --enable-mbstring=all \
     --with-fpm-user=${user} \
@@ -109,16 +111,30 @@ cd /usr/local/src/lib/$php
 
 make && make install
 
-cp  /usr/local/src/lib/${php}/php.ini-development /usr/local/${php}/etc/php.ini
-cd /usr/local/${php}/etc
+cp  /usr/local/src/lib/${dirname}/php.ini-development /usr/local/${dirname}/etc/php.ini
+cd /usr/local/${dirname}/etc
 cp php-fpm.conf.default php-fpm.conf
 cp php-fpm.d/www.conf.default  php-fpm.d/${user}.conf
 
-ln -s /usr/local/${php} /usr/local/php
+if [ -d /usr/local/php/ ]
+then
+    rm -rf /usr/local/php
+fi
 
-ln -s /usr/local/${php}/sbin/php-fpm /usr/local/bin/php-fpm
-lh -s /usr/local/${php}/bin/php /usr/local/bin/php
+ln -s /usr/local/${dirname} /usr/local/php
 
-cd /usr/local/
+if [ -f /usr/local/bin/php-fpm ]
+then
+    rm -rf /usr/local/bin/php-fpm
+fi
+
+ln -s /usr/local/${dirname}/sbin/php-fpm /usr/local/bin/php-fpm
+
+if [ -f /usr/local/bin/php ]
+then
+    rm -rf /usr/local/bin/php
+fi
+
+lh -s /usr/local/${dirname}/bin/php /usr/local/bin/php
 
 sh $path/phpredis.sh

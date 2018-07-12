@@ -1,7 +1,28 @@
 #!/bin/sh
 
+# 定义安装版本号
+if [ $1 ]; then
+    version=$1
+else
+    version="4.1.0"
+fi
+
+name="redis"
+dirname="$name-$version"
+tarfile="$name-${version}.tgz"
+
+if [ ! -f "/usr/local/src/lib/$tarfile" ];then
+    wget http://pecl.php.net/get/$tarfile
+fi
+
+if [ -d "/usr/local/src/lib/${dirname}" ];then
+    rm -rf /usr/local/src/lib/${dirname}
+fi
+
+tar -zxvf /usr/local/src/lib/$tarfile phpredis
+
 #安装php redis扩展
-cd /usr/local/src/lib/phpredis-develop
+cd /usr/local/src/lib/phpredis
 
 /usr/local/php/bin/phpize
 
