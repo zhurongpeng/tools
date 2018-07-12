@@ -36,7 +36,7 @@ extension=`make install | tail -1 | awk '{print $4}'`
 echo $extension
 
 
-# echo extension_dir = "/usr/local/php/lib/php/extensions/no-debug-non-zts-20151012" >> /usr/local/php/etc/php.ini
-#
-# echo extension=redis.so >> /usr/local/php/etc/php.ini
+echo extension_dir = "$extension" >> /usr/local/php/etc/php.ini
+
+echo extension=redis.so >> /usr/local/php/etc/php.ini
 
