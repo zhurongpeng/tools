@@ -108,7 +108,7 @@ cd /usr/local/src/lib/$dirname
     --enable-ftp \
     --enable-bcmath \
     --with-libxml-dir \
-    --with-openssl
+    --enable-openssl
 
 make && make install
 
