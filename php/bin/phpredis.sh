@@ -21,7 +21,11 @@ if [ -d "/usr/local/src/lib/${dirname}" ];then
     rm -rf /usr/local/src/lib/${dirname}
 fi
 
-tar -zxvf /usr/local/src/lib/$tarfile phpredis
+if [ -d "/usr/local/src/lib/phpredis-$version" ];then
+    mkdir /usr/local/src/lib/phpredis-$version
+fi
+
+tar -zxvf /usr/local/src/lib/$tarfile -C phpredis-$version
 
 #安装php redis扩展
 cd /usr/local/src/lib/phpredis
