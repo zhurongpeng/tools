@@ -30,7 +30,8 @@ cd /usr/local/src/lib/$dirname
 
 ./configure --with-php-config=/usr/local/php/bin/php-config
 
-make && make install
+make && make install | tail -1
+
 
 # echo extension_dir = "/usr/local/php/lib/php/extensions/no-debug-non-zts-20151012" >> /usr/local/php/etc/php.ini
 #
