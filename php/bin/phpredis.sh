@@ -21,7 +21,7 @@ if [ -d "/usr/local/src/lib/${dirname}" ];then
     rm -rf /usr/local/src/lib/${dirname}
 fi
 
-if [ -d "/usr/local/src/lib/phpredis-$version" ];then
+if [ ! -d "/usr/local/src/lib/phpredis-$version" ];then
     mkdir /usr/local/src/lib/phpredis-$version
 fi
 
