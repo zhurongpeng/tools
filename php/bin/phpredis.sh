@@ -7,14 +7,14 @@ else
     version="4.1.0"
 fi
 
-name="phpredis"
+name="redis"
 dirname="$name-$version"
 tarfile="$name-${version}.tgz"
 
 cd /usr/local/src/lib
 
 if [ ! -f "/usr/local/src/lib/$tarfile" ];then
-    wget -O phpredis-4.1.0.tgz http://pecl.php.net/get/redis-${version}.tgz
+    wget -O phpredis-4.1.0.tgz http://pecl.php.net/get/$tarfile
 fi
 
 if [ -d "/usr/local/src/lib/${dirname}" ];then
