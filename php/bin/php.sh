@@ -139,3 +139,7 @@ fi
 ln -s /usr/local/${dirname}/bin/php /usr/local/bin/php
 
 sh $path/phpredis.sh
+sh $path/openssl.sh
+
+/usr/local/php/sbin/php-fpm
+
