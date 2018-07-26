@@ -27,6 +27,7 @@ fi
 
 for ((i=1; i<=$3; i++))
 do
+    #例子:/usr/local/src/lib/deamon /usr/local/php/bin/php /usr/local/tools/deamon/test.php
     /usr/local/src/lib/deamon "$1 $2"
 done
 
