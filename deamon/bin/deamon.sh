@@ -17,7 +17,14 @@ if [ ! $3 ]; then
     exit
 fi
 
+path=$(cd `dirname $0`; pwd)
+
+if [ ! -f "/usr/local/src/lib/deamon" ]
+then
+    gcc -g $path/deamon.c -o /usr/local/src/lib/deamon
+fi
+
 for ((i=1; i<=$3; i++))
 do
-    /usr/local/tools/deamon/bin/deamon "$1 $2"
+    /usr/local/src/lib/deamon "$1 $2"
 done
