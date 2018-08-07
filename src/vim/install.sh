@@ -15,3 +15,7 @@ sh /usr/local/src/lib/setup.sh -i
 
 cat $path/vimrc >> ~/.vimrc
 
+rm -rf ~/.vim/bundle/vim-gutentags/plugin/gutentags.vim
+
+sed -i "s/packadd! matchit/\" packadd! matchit/g" ~/.vimrc
+
