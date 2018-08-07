@@ -16,7 +16,7 @@ else
     exit
 fi
 
-yum -y install gcc gcc-c++ make autoconf libtool-ltdl-devel gd-develi freetype-devel libxml2-devel libjpeg-devel libpng-devel openssl-devel curl-devel bison patch unzip libmcrypt-devel libmhash-devel ncurses-devel sudo bzip2 flex libaio-devel cmake
+yum -y install gcc gcc-c++ make autoconf libtool-ltdl-devel gd-develi freetype-devel libxml2-devel libjpeg-devel libpng-devel curl-devel patch unzip libmcrypt-devel libmhash-devel sudo bzip2 flex cmake libaio libaio-devel bison bison-devel zlib-devel openssl openssl-devel ncurses ncurses-devel libcurl-devel libarchive-devel boost boost-devel lsof wget perl kernel-headers kernel-devel pcre-devel
 
 count=`pidof "/usr/local/mysql/bin/mysql" | wc -l`
 
