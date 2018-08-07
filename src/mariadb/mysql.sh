@@ -32,7 +32,12 @@ then
     rm -rf /usr/local/mysql
 fi
 
-dir="mysql-5.7.16"
+dir="mariadb-10.3.8"
+
+if [ ! -d "/usr/local/src/lib/" ]
+then
+    mkdir /usr/local/src/lib
+fi
 
 cd /usr/local/src/lib
 
