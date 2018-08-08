@@ -102,3 +102,4 @@ chkconfig --add mysqld
 
 cp /usr/local/mysql/bin/mysql /usr/local/bin/mysql
 
+/usr/local/mysql/bin/mysql_secure_installation
