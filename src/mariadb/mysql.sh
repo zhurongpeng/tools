@@ -71,7 +71,7 @@ cd /usr/local/src/lib/$dirname
 
 cmake . -DCMAKE_INSTALL_PREFIX=/usr/local/mysql \
     -DMYSQL_DATADIR=/usr/local/mysql/data \
-    -DMYSQL_UNIX_ADDR=/usr/local/mysql/tmp/mysql.sock \
+    -DMYSQL_UNIX_ADDR=/var/lib/mysql/mysql.sock \
     -DMYSQL_TCP_PORT=3306 \
     -DMYSQL_USER=$user \
     -DDEFAULT_CHARSET=utf8 \
@@ -86,17 +86,15 @@ cmake . -DCMAKE_INSTALL_PREFIX=/usr/local/mysql \
 
 make && make install
 
+cp /usr/local/mysql/support-files/wsrep.cnf /etc/my.cnf
+
+/usr/local/mysql/scripts/mysql_install_db --defaults-file=/etc/my.cnf --user=mysql --datadir=/usr/local/mysql/data --basedir=/usr/local/mysql/ --wsrep_cluster_address=/usr/local/mysql/
+
 cp /usr/local/mysql/support-files/mysql.server /etc/rc.d/init.d/mysqld
+
 chmod +x /etc/rc.d/init.d/mysqld
-chkconfig --add mysqld 
-cp /usr/local/mysql/support-files/my-default.cnf /etc/my.cnf
 
-# mkdir -p /data/mysql
-# /usr/local/mysql/bin/mysqld --initialize --user=mysql --basedir=/usr/local/mysql --datadir=/data/mysql
-
-/usr/local/mysql/bin/mysqld --initialize --user=$user --basedir=/usr/local/mysql
-
-echo skip-grant-tables >> /etc/my.cnf
+chkconfig --add mysqld
 
 /usr/local/mysql/support-files/mysql.server start
 
