@@ -72,6 +72,7 @@ cd /usr/local/src/lib/$dirname
 cmake . -DCMAKE_INSTALL_PREFIX=/usr/local/mysql \
     -DMYSQL_DATADIR=/usr/local/mysql/data \
     -DMYSQL_UNIX_ADDR=/usr/local/mysql/tmp/mysql.sock \
+    -DMYSQL_TCP_PORT=3306 \
     -DMYSQL_USER=$user \
     -DDEFAULT_CHARSET=utf8 \
     -DDEFAULT_COLLATION=utf8_general_ci \
@@ -81,7 +82,8 @@ cmake . -DCMAKE_INSTALL_PREFIX=/usr/local/mysql \
     -DWITH_FEDERATED_STORAGE_ENGINE=1 \
     -DWITH_BLACKHOLE_STORAGE_ENGINE=1 \
     -DWITHOUT_EXAMPLE_STORAGE_ENGINE=1 \
-    -DDOWNLOAD_BOOST=1
+    -DWITH_DEBUG=0 \
+    -DENABLE_PROFILING=1
 
 make && make install
 
