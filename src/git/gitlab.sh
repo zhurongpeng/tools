@@ -14,6 +14,12 @@ curl https://packages.gitlab.com/install/repositories/gitlab/gitlab-ee/script.rp
 
 sudo EXTERNAL_URL="http://git.zhurp.xyz" yum install -y gitlab-ee
 
+gitlab-rails console production
+
+#user = User.where(id: 1).first
+#user.password = '123456
+#user.save!
+
 
 # cd /usr/local/src
 #
