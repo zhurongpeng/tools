@@ -65,6 +65,11 @@ then
     # wget http://pkgs.fedoraproject.org/repo/pkgs/mysql/mysql-boost-5.7.16.tar.gz/f7724b816919878760b5c7c9956e6508/mysql-boost-5.7.16.tar.gz
 fi
 
+if [ -d /usr/local/src/lib/$dirname ]
+then
+    rm -rf /usr/local/src/lib/$dirname
+fi
+
 tar zxf /usr/local/src/lib/$tarfile
 
 cd /usr/local/src/lib/$dirname
