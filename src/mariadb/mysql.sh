@@ -33,7 +33,6 @@ if [ $count != 0 ];then
     kill $pid
 fi
 
-
 # 定义安装版本号
 if [ $3 ]; then
     version=$1
