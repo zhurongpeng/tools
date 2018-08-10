@@ -40,9 +40,12 @@ fi
 
 cd /usr/local/src/lib
 
-if [ ! -f "/usr/local/src/lib/$tarfile" ];then
-    wget http://cn2.php.net/distributions/$tarfile
+if [ -f "/usr/local/src/lib/$tarfile" ]
+then
+    rm -rf /usr/local/src/lib/$tarfile
 fi
+
+wget http://cn2.php.net/distributions/$tarfile
 
 #判断php进程是否开启,开启则kill进程
 count=`pidof "/usr/local/${dirname}/sbin/php-fpm" | wc -l`

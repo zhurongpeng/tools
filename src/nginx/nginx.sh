@@ -62,10 +62,12 @@ then
     rm -rf /usr/local/src/lib/$dirname
 fi
 
-if [ ! -f /usr/local/src/lib/$tarfile ]
+if [ -f /usr/local/src/lib/$tarfile ]
 then
-    wget http://nginx.org/download/$tarfile
+    rm -rf /usr/local/src/lib/$tarfile
 fi
+
+wget http://nginx.org/download/$tarfile
 
 tar zxf /usr/local/src/lib/$tarfile
 

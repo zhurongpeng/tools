@@ -58,11 +58,13 @@ fi
 
 cd /usr/local/src/lib
 
-if [ ! -f /usr/local/src/lib/$tarfile ]
+if [ -f /usr/local/src/lib/$tarfile ]
 then
-    wget https://downloads.mariadb.org/interstitial/$dirname/source/$tarfile
+    rm -rf /usr/local/src/lib/$tarfile
     # wget http://pkgs.fedoraproject.org/repo/pkgs/mysql/mysql-boost-5.7.16.tar.gz/f7724b816919878760b5c7c9956e6508/mysql-boost-5.7.16.tar.gz
 fi
+
+wget https://downloads.mariadb.org/interstitial/$dirname/source/$tarfile
 
 if [ -d /usr/local/src/lib/$dirname ]
 then
