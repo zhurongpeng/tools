@@ -1,0 +1,40 @@
+{
+    "name": "together",
+    "homepage": "http://composer.zhurp.xyz",
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "https://packagist.phpcomposer.com"
+        },
+        {
+            "type": "git",
+            "url": "git@git.zhurp.xyz:sdks/sdk-log.git",
+            "ssh2": {
+                "username": "zhurongpeng",
+                "pubkey_file": "/home/zhurongpeng/.ssh/id_rsa.pub",
+                "privkey_file": "/home/zhurongpeng/.ssh/id_rsa"
+            }
+        }
+    ],
+    "require": {
+        "slim/slim": "^3.9",
+        "illuminate/database": "^5.5",
+        "illuminate/events": "^5.5",
+        "vlucas/phpdotenv": "^2.4",
+        "tuupola/slim-jwt-auth": "^2.3",
+        "monolog/monolog": "^1.23",
+        "nesbot/carbon": "^1.22",
+        "illuminate/validation": "^5.6",
+        "phpunit/phpunit": "^7.1",
+        "hao-li/laravel-amount": "^1.0",
+        "mrgoon/aliyun-sms": "^2.0",
+        "phpoffice/phpexcel": "^1.8",
+        "guzzlehttp/guzzle": "^6.3"
+    },
+    "archive": {
+        "directory":"dist",
+        "format":"tar",
+        "prefix-url":"http://composer.zhurp.xyz",
+        "skip-dev":true
+    }
+}

@@ -18,4 +18,8 @@ composer create-project composer/satis --stability=dev --keep-vcs
 
 mv ./satis composer
 
+path=$(cd `dirname $0`; pwd)
+
+cat $path/satis.json > /tool/composer/satis.json
+
 php bin/satis build satis.json public/
