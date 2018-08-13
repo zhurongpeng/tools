@@ -4,7 +4,7 @@ if [ ! -d /data ];then
     mkdir /data
 fi
 
-cd /data/composer
+cd /data
 
 composer create-project composer/satis --stability=dev --keep-vcs
 
