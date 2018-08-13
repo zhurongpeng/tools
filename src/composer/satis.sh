@@ -1,6 +1,10 @@
 #!/bin/sh
 
-cd /data/tools
+if [ ! -d /data ];then
+    mkdir /data
+fi
+
+cd /data/composer
 
 composer create-project composer/satis --stability=dev --keep-vcs
 
