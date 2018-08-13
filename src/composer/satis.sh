@@ -4,7 +4,7 @@ if [ ! -d /tool ];then
     mkdir /tool
 fi
 
-cd /data
+cd /tool
 
 if [ -d /tool/satis ];then
     rm -rf /tool/satis
