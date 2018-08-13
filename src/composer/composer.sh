@@ -2,15 +2,14 @@
 
 cd /usr/local/src/lib
 
-if [ -f "/usr/local/src/lib/composer.phar" ];then
-    rm -rf /usr/local/src/lib/composer.phar
-fi
+php -r "unlink('composer-setup.php');"
 
-curl -sS https://getcomposer.org/installer > composer.phar
+php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
 
-if [ -f "/usr/local/bin/composer" ];then
-    rm -rf /usr/local/bin/composer
-fi
+php -r "if (hash_file('SHA384', 'composer-setup.php') === '544e09ee996cdf60ece3804abc52599c22b1f40f4323403c44d44fdfdd586475ca9813a858088ffbc1f233e9b180f061') { echo 'Installer verified';  } else { echo 'Installer corrupt'; unlink('composer-setup.php');  } echo PHP_EOL;"
+
+php composer-setup.php
+
+php -r "unlink('composer-setup.php');"
 
 ln -s /usr/local/src/lib/composer.phar /usr/local/bin/composer
-
