@@ -14,28 +14,15 @@ curl https://packages.gitlab.com/install/repositories/gitlab/gitlab-ee/script.rp
 
 sudo EXTERNAL_URL="http://git.zhurp.xyz" yum install -y gitlab-ee
 
-echo "user = User.where(id: 1).first"
-echo "user.password = \"123456\""
-echo "user.password_confirmation=\"123456\""
-echo "user.save!"
-
 gitlab-rails console production
 
+#1、配置密码
+#echo "user = User.where(id: 1).first"
+#echo "user.password = \"123456\""
+#echo "user.password_confirmation=\"123456\""
+#echo "user.save!"
 
-
-
-# cd /usr/local/src
-#
-# wget https://mirrors.tuna.tsinghua.edu.cn/gitlab-ce/yum/el7/gitlab-ce-8.8.5-ce.1.el7.x86_64.rpm
-#
-# rpm -ivh gitlab-ce-8.8.5-ce.1.el7.x86_64.rpm
-
-# echo external_url 'http://git.zhurp.xyz' >> /etc/gitlab/gitlab.rb
-# sed -i '42s/daemonize no/daemonize yes/' /usr/local/redis/redis.conf
-# gitlab-ctl reconfigure
-
-
-2.编辑/etc/gitlab/gitlab.rb:
+# 2.编辑/etc/gitlab/gitlab.rb:
 
 # 编辑对外的域名（gitlab.papamk.com请添加A记录指向本服务器的公网IP）：
 # external_url 'http://gitlab.papamk.com/'
@@ -54,6 +41,7 @@ gitlab-rails console production
 # 最后执行下面命令让配置生效：
 #
 # $gitlab-ctl reconfigure
+
 # 3.配置nginx
 # 增加gitlab.conf的配置（所有需要注意的地方都加了中文注释）：
 
