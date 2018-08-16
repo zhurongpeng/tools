@@ -2,6 +2,8 @@
 
 sudo yum install vim
 
+export LC_ALL = C
+
 path=$(cd `dirname $0`; pwd)
 
 if [ ! -d "/usr/local/src/lib/" ]
