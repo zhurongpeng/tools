@@ -1,6 +1,6 @@
 #!/bin/sh
 
-yum install vim
+sudo yum install vim
 
 path=$(cd `dirname $0`; pwd)
 
