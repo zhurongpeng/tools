@@ -35,7 +35,7 @@ fi
 
 # 定义安装版本号
 if [ $3 ]; then
-    version=$1
+    version=$3
 else
     version="10.3.8"
 fi
