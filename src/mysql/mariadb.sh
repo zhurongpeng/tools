@@ -65,9 +65,8 @@ then
 fi
 
 echo "https://downloads.mariadb.org/interstitial/$dirname/source/$tarfile"
-exit
+
 wget https://downloads.mariadb.org/interstitial/$dirname/source/$tarfile
-https://downloads.mariadb.org/interstitial/mariadb-10.2.17/source/mariadb-10.2.17.tar.gz
 
 if [ -d /usr/local/src/lib/$dirname ]
 then
