@@ -61,13 +61,9 @@ cd /usr/local/src/lib
 if [ -f /usr/local/src/lib/$tarfile ]
 then
     rm -rf /usr/local/src/lib/$tarfile
-    # wget http://pkgs.fedoraproject.org/repo/pkgs/mysql/mysql-boost-5.7.16.tar.gz/f7724b816919878760b5c7c9956e6508/mysql-boost-5.7.16.tar.gz
 fi
 
-echo "https://downloads.mariadb.org/interstitial/$dirname/source/$tarfile"
-exit
-wget https://downloads.mariadb.org/interstitial/$dirname/source/$tarfile
-https://downloads.mariadb.org/interstitial/mariadb-10.2.17/source/mariadb-10.2.17.tar.gz
+wget http://pkgs.fedoraproject.org/repo/pkgs/mysql/mysql-boost-5.7.16.tar.gz/f7724b816919878760b5c7c9956e6508/mysql-boost-5.7.16.tar.gz
 
 if [ -d /usr/local/src/lib/$dirname ]
 then
@@ -90,7 +86,8 @@ cmake . -DCMAKE_INSTALL_PREFIX=/usr/local/mysql \
     -DWITH_INNOBASE_STORAGE_ENGINE=1 \
     -DWITH_FEDERATED_STORAGE_ENGINE=1 \
     -DWITH_BLACKHOLE_STORAGE_ENGINE=1 \
-    -DWITHOUT_EXAMPLE_STORAGE_ENGINE=1
+    -DWITHOUT_EXAMPLE_STORAGE_ENGINE=1 \
+    -DDOWNLOAD_BOOST=1
 
 make && make install
 
@@ -110,4 +107,4 @@ chkconfig --add mysqld
 
 cp /usr/local/mysql/bin/mysql /usr/local/bin/mysql
 
-/usr/local/mysql/bin/mysql_secure_installation
+# /usr/local/mysql/bin/mysql_secure_installation
