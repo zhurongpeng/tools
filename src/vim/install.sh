@@ -2,6 +2,10 @@
 
 sudo yum install vim
 
+rm -rf ~/.vim
+rm -rf ~/.ivim
+rm -rf ~/.vimrc
+
 export LC_ALL = C
 
 path=$(cd `dirname $0`; pwd)
